@@ -22,3 +22,29 @@ document.getElementById('diposit-button').addEventListener('click', function () 
     // clear diposit 
     dipositInput.value = ''
 })
+
+
+// handle withdraw 
+document.getElementById('withdraw-button').addEventListener('click', function () {
+    const withdrawInput = document.getElementById('withdraw-input');
+    const withdrawAmountText = withdrawInput.value;
+    const newWithdrawAmount = parseFloat(withdrawAmountText);
+    console.log(newWithdrawAmount);
+    // set withdraw total
+    const withdrawTotal = document.getElementById('withdraw-total');
+    const previousWithdrawText = withdrawTotal.innerText;
+    const previousWithdrawTotal = parseFloat(previousWithdrawText);
+
+    const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+    withdrawTotal.innerText = newWithdrawTotal;
+
+
+    // set balance
+    const BalanceTotal = document.getElementById('balance-total');
+    const previousBalanceText = BalanceTotal.innerText;
+    const previousBalanceTotal = parseFloat(previousBalanceText);
+    const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
+    BalanceTotal.innerText = newBalanceTotal;
+    // clear 
+    withdrawInput.value = '';
+})
